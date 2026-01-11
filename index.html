@@ -48,12 +48,8 @@
     header {
       background: var(--color-bg);
       border-bottom: 1px solid var(--color-border);
-      padding: var(--spacing-lg) 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.9);
+      padding: var(--spacing-xl) 0;
+      margin-bottom: var(--spacing-xl);
     }
 
     .header-content {
@@ -125,41 +121,6 @@
       color: var(--color-primary);
     }
 
-    /* Navigation */
-    nav {
-      background: var(--color-bg-light);
-      border-bottom: 1px solid var(--color-border);
-      padding: 0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    nav li {
-      flex-shrink: 0;
-    }
-
-    nav a {
-      display: block;
-      padding: 1rem 1.5rem;
-      color: var(--color-text-light);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.2s;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav a:hover {
-      color: var(--color-primary);
-      background: var(--color-bg);
-    }
-
     /* Main Content */
     main {
       padding: var(--spacing-xl) 0;
@@ -167,21 +128,35 @@
 
     section {
       margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-lg);
+      border-bottom: 1px solid var(--color-border);
     }
 
     section:last-child {
       margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--color-primary);
       margin-bottom: var(--spacing-md);
-      letter-spacing: -0.5px;
       text-transform: uppercase;
-      font-size: 0.875rem;
       letter-spacing: 1.5px;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--color-primary);
     }
 
     /* About */
@@ -193,11 +168,13 @@
     }
 
     .about p {
-      margin-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
     }
 
     .about p:last-child {
       margin-bottom: 0;
+      font-style: italic;
+      color: var(--color-text);
     }
 
     /* Education */
@@ -212,11 +189,13 @@
       border-left: 3px solid var(--color-primary);
       background: var(--color-bg-light);
       transition: all 0.2s;
+      position: relative;
     }
 
     .education-item:hover {
       background: #f0f0f0;
       transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .education-item h3 {
@@ -263,6 +242,7 @@
     .skill-card:hover {
       border-color: var(--color-primary);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .skill-card h3 {
@@ -427,13 +407,6 @@
         grid-template-columns: 1fr;
       }
 
-      nav ul {
-        padding: 0 var(--spacing-sm);
-      }
-
-      nav a {
-        padding: 1rem;
-      }
     }
   </style>
 </head>
@@ -460,18 +433,6 @@
       </div>
     </div>
   </header>
-
-  <nav>
-    <div class="container">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
   <main class="container">
     <section id="about">
