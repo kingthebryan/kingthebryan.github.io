@@ -1,12 +1,419 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="개인 포트폴리오 홈페이지">
+  <title>Portfolio | 개인 홈페이지</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #8b5cf6;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border-color: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--bg-primary);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid white;
+      margin: 0 auto 1.5rem;
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--bg-secondary);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 2rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .about {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .skill-card p {
+      color: var(--text-secondary);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .project-link:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s;
+    }
+
+    .contact-link:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>안녕하세요 👋</h1>
-  <p>GitHub Pages로 만든 개인 홈페이지입니다.</p>
+  <div class="container">
+    <header>
+      <div class="profile-img">👨‍💻</div>
+      <h1>Your Name</h1>
+      <p class="subtitle">개발자 | Designer | Creator</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#contact">연락</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="about">
+          <p>안녕하세요! 열정적인 개발자입니다. 🚀</p>
+          <p>새로운 기술을 배우고 문제를 해결하는 것을 좋아합니다. 코드로 세상을 더 나은 곳으로 만들고 싶습니다.</p>
+          <p>함께 성장하고 협업하는 것을 즐깁니다. 언제든지 연락주세요!</p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend</h3>
+            <p>HTML, CSS, JavaScript, React, Vue.js</p>
+          </div>
+          <div class="skill-card">
+            <h3>Backend</h3>
+            <p>Node.js, Python, Java, Database</p>
+          </div>
+          <div class="skill-card">
+            <h3>Tools</h3>
+            <p>Git, Docker, AWS, CI/CD</p>
+          </div>
+          <div class="skill-card">
+            <h3>Design</h3>
+            <p>Figma, UI/UX Design</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img">🎨</div>
+            <div class="project-content">
+              <h3>프로젝트 1</h3>
+              <p>프로젝트에 대한 간단한 설명을 여기에 작성하세요. 기술 스택과 주요 기능을 포함합니다.</p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <a href="#" class="project-link">자세히 보기 →</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img">🚀</div>
+            <div class="project-content">
+              <h3>프로젝트 2</h3>
+              <p>프로젝트에 대한 간단한 설명을 여기에 작성하세요. 기술 스택과 주요 기능을 포함합니다.</p>
+              <div class="project-tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+              <a href="#" class="project-link">자세히 보기 →</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img">💡</div>
+            <div class="project-content">
+              <h3>프로젝트 3</h3>
+              <p>프로젝트에 대한 간단한 설명을 여기에 작성하세요. 기술 스택과 주요 기능을 포함합니다.</p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">CSS</span>
+                <span class="tag">API</span>
+              </div>
+              <a href="#" class="project-link">자세히 보기 →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com" class="contact-link">
+            <span>📧</span>
+            <span>Email</span>
+          </a>
+          <a href="https://github.com/yourusername" target="_blank" class="contact-link">
+            <span>🐙</span>
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-link">
+            <span>💼</span>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/yourusername" target="_blank" class="contact-link">
+            <span>🐦</span>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Your Name. Made with ❤️</p>
+    </footer>
+  </div>
 </body>
 </html>
