@@ -81,6 +81,11 @@
       object-fit: cover;
     }
 
+    .profile-info {
+      flex: 1;
+      min-width: 0;
+    }
+
     .profile-info h1 {
       font-size: 1.75rem;
       font-weight: 700;
@@ -95,12 +100,15 @@
       justify-content: space-between;
       gap: var(--spacing-md);
       flex-wrap: wrap;
+      width: 100%;
     }
 
     .profile-info .subtitle {
       font-size: 0.95rem;
       color: var(--color-text-light);
       font-weight: 400;
+      flex: 1;
+      min-width: 0;
     }
 
     .contact-header {
@@ -493,7 +501,6 @@
             <p><strong>Samsung MX Project:</strong> On-device few-shot continual learning with lightweight adapter</p>
             <p><strong>Subject:</strong> Develop a lightweight yet adaptive framework for user-level personalization</p>
             <div class="project-tags">
-              <span class="tag">Machine Learning</span>
               <span class="tag">Few-shot Learning</span>
               <span class="tag">On-device</span>
               <span class="tag">Personalization</span>
