@@ -93,6 +93,14 @@
       letter-spacing: -0.5px;
     }
 
+    .profile-info .subtitle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+
     .profile-info .subtitle {
       font-size: 0.95rem;
       color: var(--color-text-light);
@@ -353,29 +361,21 @@
     }
 
     /* Contact */
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--color-bg-light);
-      border: 1px solid var(--color-border);
-      color: var(--color-text);
-      text-decoration: none;
+    .contact-info {
       font-size: 0.95rem;
-      transition: all 0.2s;
+      color: var(--color-text-light);
+      line-height: 1.8;
     }
 
-    .contact-link:hover {
-      background: var(--color-primary);
-      color: var(--color-bg);
-      border-color: var(--color-primary);
+    .contact-info a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--color-text);
+      text-decoration: underline;
     }
 
     /* Footer */
@@ -398,6 +398,12 @@
       .header-content {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .profile-info .subtitle-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
       }
 
       .contact-header {
@@ -440,14 +446,16 @@
             <img src="images/profile.jpg" alt="Profile Picture">
           </div>
           <div class="profile-info">
-            <h1>박준호 (Bryan Sun Park)</h1>
-            <div class="subtitle">B.S. in Electrical and Computer Engineering | Seoul National University</div>
+            <h1>Junho Park | Bryan Sun Park</h1>
+            <div class="subtitle-row">
+              <div class="subtitle">B.S. in Electrical and Computer Engineering | Seoul National University</div>
+              <div class="contact-header">
+                <a href="https://github.com/kingthebryan" target="_blank">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank">Google Scholar</a>
+                <a href="images/CV.pdf" target="_blank" download>CV</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="contact-header">
-          <a href="https://github.com/kingthebryan" target="_blank">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank">Google Scholar</a>
-          <a href="images/CV.pdf" target="_blank" download>CV</a>
         </div>
       </div>
     </div>
@@ -544,15 +552,9 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:bryan123@snu.ac.kr" class="contact-link">
-          <span>📧</span>
-          <span>Email</span>
-        </a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank" class="contact-link">
-          <span>💼</span>
-          <span>LinkedIn</span>
-        </a>
+      <div class="contact-info">
+        <p>📧 Email: <a href="mailto:bryan123@snu.ac.kr">bryan123@snu.ac.kr</a></p>
+        <p>💼 LinkedIn: <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">linkedin.com/in/YOUR_LINKEDIN_USERNAME</a></p>
       </div>
     </section>
   </main>
