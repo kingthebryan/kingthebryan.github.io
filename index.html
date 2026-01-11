@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="개인 포트폴리오 홈페이지">
-  <title>JUNHO PARK | Portfolio</title>
+  <title>Junho Park (Bryan Sun Park) | Portfolio</title>
   <style>
     * {
       margin: 0;
@@ -136,6 +136,58 @@
       font-size: 1.1rem;
       line-height: 1.8;
       color: var(--text-secondary);
+    }
+
+    /* Education */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .education-item {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .education-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .education-item h3 {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-item .degree {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-item .date {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .education-item .gpa {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    .education-item .track {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
     }
 
     /* Skills Grid */
@@ -308,13 +360,14 @@
       <div class="profile-img">
         <img src="images/profile.jpg" alt="Profile Picture">
       </div>
-      <h1>JUNHO PARK</h1>
+      <h1>박준호 (Bryan Sun Park)</h1>
       <p class="subtitle">B.S. in Electrical and Computer Engineering | Seoul National University</p>
     </header>
 
     <nav>
       <ul>
         <li><a href="#about">소개</a></li>
+        <li><a href="#education">학력</a></li>
         <li><a href="#skills">기술</a></li>
         <li><a href="#projects">프로젝트</a></li>
         <li><a href="#contact">연락</a></li>
@@ -333,6 +386,23 @@
             and privacy-aware model adaptation.</p>
             
             <p>“I will someday fail, but not today.”</p>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="education-list">
+          <div class="education-item">
+            <h3>Seoul National University</h3>
+            <div class="degree">B.S. in Electrical and Computer Engineering</div>
+            <div class="date">03/2021 - Present (Expected Graduation: 02/2027)</div>
+            <div class="gpa">CGPA: 3.80 / 4.3</div>
+          </div>
+          <div class="education-item">
+            <h3>Hankuk Academy of Foreign Studies</h3>
+            <div class="track">Natural Science Track</div>
+            <div class="date">02/2018 - 02/2021</div>
+          </div>
         </div>
       </section>
 
@@ -404,7 +474,7 @@
     </main>
 
     <footer>
-      <p>© 2024 JUNHO PARK. Made with ❤️</p>
+      <p>© 2026 박준호 (Bryan Sun Park). Made with ❤️</p>
     </footer>
   </div>
 </body>
