@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="개인 포트폴리오 홈페이지">
-  <title>Junho Park (Bryan Sun Park) | Portfolio</title>
+  <meta name="description" content="Junho Park (Bryan Sun Park) - Curriculum Vitae">
+  <title>Junho Park (Bryan Sun Park) | CV</title>
   <style>
     * {
       margin: 0;
@@ -12,470 +12,328 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --primary-color: #6366f1;
-      --secondary-color: #8b5cf6;
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
-      --bg-primary: #ffffff;
-      --bg-secondary: #f9fafb;
-      --border-color: #e5e7eb;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       line-height: 1.6;
-      color: var(--text-primary);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
+      color: #333;
+      background: #f5f5f5;
       padding: 2rem 1rem;
     }
 
-    .container {
-      max-width: 1200px;
+    .cv-container {
+      max-width: 900px;
       margin: 0 auto;
-      background: var(--bg-primary);
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
+      background: white;
+      padding: 3rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     /* Header */
     header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      color: white;
-      padding: 4rem 2rem;
       text-align: center;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin: 0 auto 1.5rem;
-      background: var(--bg-secondary);
+    .header-name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+      letter-spacing: 1px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: #475569;
+      margin-top: 0.5rem;
+    }
+
+    .contact-info span {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      object-fit: cover;
+      gap: 0.3rem;
     }
 
-    .profile-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    /* Sections */
+    section {
+      margin-bottom: 2rem;
+      page-break-inside: avoid;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #1e293b;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .subtitle {
-      font-size: 1.25rem;
-      opacity: 0.9;
-      font-weight: 300;
+    /* Education & Experience Items */
+    .item {
+      margin-bottom: 1.5rem;
     }
 
-    /* Navigation */
-    nav {
-      background: var(--bg-secondary);
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    nav ul {
-      list-style: none;
+    .item-header {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.3rem;
       flex-wrap: wrap;
     }
 
-    nav a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Main Content */
-    main {
-      padding: 3rem 2rem;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    section:last-child {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-primary);
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    .about {
+    .item-title {
       font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
+      font-weight: bold;
+      color: #1e293b;
     }
 
-    /* Education */
-    .education-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .education-item {
-      background: var(--bg-secondary);
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--primary-color);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .education-item:hover {
-      transform: translateX(5px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .education-item h3 {
-      color: var(--text-primary);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .education-item .degree {
-      color: var(--primary-color);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .education-item .date {
-      color: var(--text-secondary);
+    .item-date {
       font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+      color: #64748b;
+      white-space: nowrap;
     }
 
-    .education-item .gpa {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
+    .item-subtitle {
+      font-size: 1rem;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .item-details {
       margin-top: 0.5rem;
-    }
-
-    .education-item .track {
-      color: var(--text-secondary);
+      color: #475569;
       font-size: 0.95rem;
-      margin-top: 0.5rem;
     }
 
-    /* Skills Grid */
-    .skills-grid {
+    .item-details ul {
+      margin-left: 1.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .item-details li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Skills */
+    .skills-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 1rem;
     }
 
-    .skill-card {
-      background: var(--bg-secondary);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .skill-category {
+      margin-bottom: 0.8rem;
     }
 
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+    .skill-category strong {
+      color: #1e293b;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.3rem;
     }
 
-    .skill-card h3 {
-      color: var(--primary-color);
+    .skill-category span {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* School Course */
+    .course-list {
+      margin-left: 1.5rem;
+    }
+
+    .course-item {
       margin-bottom: 0.5rem;
-      font-size: 1.25rem;
+      color: #475569;
+      font-size: 0.95rem;
     }
 
-    .skill-card p {
-      color: var(--text-secondary);
+    .course-item strong {
+      color: #1e293b;
     }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    /* Awards */
+    .award {
+      color: #2563eb;
+      font-weight: 600;
+      margin-top: 0.5rem;
     }
 
-    .project-card {
-      background: var(--bg-secondary);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .project-img {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-    }
-
-    .project-content {
-      padding: 1.5rem;
-    }
-
-    .project-card h3 {
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-    }
-
-    .project-card p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .tag {
-      background: var(--primary-color);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
-    }
-
-    .project-link {
-      display: inline-block;
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .project-link:hover {
-      color: var(--secondary-color);
-    }
-
-    /* Contact */
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--bg-secondary);
-      border-radius: 50px;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s;
-    }
-
-    .contact-link:hover {
-      background: var(--primary-color);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--bg-secondary);
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border-color);
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .cv-container {
+        box-shadow: none;
+        padding: 2rem;
+      }
+      section {
+        page-break-inside: avoid;
+      }
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem;
+      .cv-container {
+        padding: 1.5rem;
       }
-
-      h1 {
+      .header-name {
         font-size: 2rem;
       }
-
-      main {
-        padding: 2rem 1.5rem;
+      .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
       }
-
-      nav ul {
-        gap: 1rem;
+      .item-header {
+        flex-direction: column;
+      }
+      .item-date {
+        margin-top: 0.3rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="cv-container">
     <header>
-      <div class="profile-img">
-        <img src="images/profile.jpg" alt="Profile Picture">
+      <div class="header-name">JUNHO PARK</div>
+      <div style="font-size: 1rem; color: #64748b; margin-bottom: 0.5rem;">박준호 (Bryan Sun Park)</div>
+      <div class="contact-info">
+        <span>📧 Email: bryan123@snu.ac.kr</span>
+        <span>📱 Phone: 010-9057-2947</span>
+        <span>🎂 Birth: 2002.09.17</span>
+        <span>🐙 GitHub: bryanthegreat</span>
       </div>
-      <h1>박준호 (Bryan Sun Park)</h1>
-      <p class="subtitle">B.S. in Electrical and Computer Engineering | Seoul National University</p>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="#about">소개</a></li>
-        <li><a href="#education">학력</a></li>
-        <li><a href="#skills">기술</a></li>
-        <li><a href="#projects">프로젝트</a></li>
-        <li><a href="#contact">연락</a></li>
-      </ul>
-    </nav>
-
     <main>
-      <section id="about">
-        <h2>About Me</h2>
-        <div class="about">
-            <p>Hi, I’m an undergraduate senior at Seoul National University,
-                Department of Electrical and Computer Engineering.</p>
-            
-            <p>I am interested in machine learning systems, with a focus on
-            personalized large language models, parameter-efficient fine-tuning,
-            and privacy-aware model adaptation.</p>
-            
-            <p>“I will someday fail, but not today.”</p>
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">Seoul National University</div>
+              <div class="item-subtitle">B.S. in Electrical and Computer Engineering</div>
+            </div>
+            <div class="item-date">03/2021 - Present</div>
+          </div>
+          <div class="item-details">
+            <div>Expected Graduation: 02/2027</div>
+            <div>CGPA: 3.78 / 4.3</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">Hankuk Academy of Foreign Studies</div>
+              <div class="item-subtitle">Natural Science Track</div>
+            </div>
+            <div class="item-date">02/2018 - 02/2021</div>
+          </div>
         </div>
       </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <div class="education-list">
-          <div class="education-item">
-            <h3>Seoul National University</h3>
-            <div class="degree">B.S. in Electrical and Computer Engineering</div>
-            <div class="date">03/2021 - Present (Expected Graduation: 02/2027)</div>
-            <div class="gpa">CGPA: 3.80 / 4.3</div>
+      <section id="school-course">
+        <h2 class="section-title">School Course</h2>
+        <div class="item-details">
+          <div style="margin-bottom: 0.5rem; color: #64748b; font-size: 0.9rem;">Seoul National University, B.S. ECE (03/2021 - present)</div>
+          <ul class="course-list">
+            <li class="course-item"><strong>Introduction to Machine Learning</strong> - present</li>
+            <li class="course-item"><strong>Introduction to Data Structures</strong></li>
+            <li class="course-item"><strong>Logic Circuit Design</strong> - project: Implement Stopwatch features with FPGA</li>
+            <li class="course-item"><strong>Linear Algebra</strong></li>
+            <li class="course-item"><strong>Fundamentals of Circuit Theory</strong> - project: Construction of Shift Register with Analog devices</li>
+            <li class="course-item"><strong>Programming Methodology</strong> - project: Visualize Bubble Bobble Arcade with OpenGL</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="military">
+        <h2 class="section-title">Military Service</h2>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">KATUSA (USFK USC)</div>
+              <div class="item-subtitle">US Army HR Specialist</div>
+            </div>
+            <div class="item-date">02/2022 - 08/2023</div>
           </div>
-          <div class="education-item">
-            <h3>Hankuk Academy of Foreign Studies</h3>
-            <div class="track">Natural Science Track</div>
-            <div class="date">02/2018 - 02/2021</div>
+          <div class="item-details">
+            <div class="award">Awarded USARMY Joint Service Commendation Medal by GEN Paul LaCamera</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">Next-Generation Semiconductor Convergence Innovation University</div>
+              <div class="item-subtitle">Research Intern</div>
+            </div>
+            <div class="item-date">03/2025 - Present</div>
+          </div>
+          <div class="item-details">
+            <ul>
+              <li>Designing an Efficient Spike Filtering System for Enhanced Performance in Spiking Neural Networks</li>
+              <li>A Seminar-Driven Study of the Differences and Enhancement Approaches Between Artificial Neural Networks and Spiking Neural Networks</li>
+              <li>Experiment based on PhysioNet 2017 ECG Classification Challenge</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">FMTC (Future Mobility Technology Center)</div>
+              <div class="item-subtitle">Intern</div>
+            </div>
+            <div class="item-date">07/2024</div>
+          </div>
+          <div class="item-details">
+            <ul>
+              <li>Studied autonomous driving platform technologies—including sensor integration, perception (camera, LiDAR, radar), motion planning, and vehicle control</li>
+              <li>Participated in an autonomous driving competition, developing software and completing missions such as perpendicular parking, autonomous navigation, and traffic signal recognition using LiDAR, radar, and ultrasonic sensors</li>
+            </ul>
+            <div class="award">🏆 Awarded Merit Award for Future Mobility Autonomous Driving Software Competition</div>
           </div>
         </div>
       </section>
 
       <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Programming</h3>
-            <p>C++, Python, Matlab, Verilog</p>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <strong>Programming Skill:</strong>
+            <span>C++, Python, Matlab, Verilog</span>
           </div>
-          <div class="skill-card">
-            <h3>English</h3>
-            <p>Native Speaking, Writing</p>
+          <div class="skill-category">
+            <strong>English Skill:</strong>
+            <span>Native Speaking, Writing</span>
           </div>
-          <div class="skill-card">
-            <h3>Design Tools</h3>
-            <p>LtSpice, KiCad</p>
+          <div class="skill-category">
+            <strong>Designing Skill:</strong>
+            <span>LtSpice, KiCad</span>
           </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <h2>Professional Experience</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-img">🔬</div>
-            <div class="project-content">
-              <h3>Next-Generation Semiconductor Convergence Innovation University</h3>
-              <p><strong>Research Intern</strong> | 03/2025 - Present</p>
-              <p>Research on designing an efficient spike filtering system for enhanced performance in Spiking Neural Networks. Conducting studies on differences and enhancement approaches between Artificial Neural Networks and Spiking Neural Networks, with experiments based on PhysioNet 2017 ECG Classification Challenge.</p>
-              <div class="project-tags">
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Neural Networks</span>
-                <span class="tag">Research</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-img">🚗</div>
-            <div class="project-content">
-              <h3>Future Mobility Technology Center (FMTC)</h3>
-              <p><strong>Intern</strong> | 07/2024</p>
-              <p>Studied autonomous driving platform technologies including sensor integration, perception (camera, LiDAR, radar), motion planning, and vehicle control. Participated in autonomous driving competition, developing software and completing missions such as perpendicular parking, autonomous navigation, and traffic signal recognition using LiDAR, radar, and ultrasonic sensors.</p>
-              <div class="project-tags">
-                <span class="tag">Autonomous Driving</span>
-                <span class="tag">LiDAR</span>
-                <span class="tag">Sensor Integration</span>
-                <span class="tag">Python</span>
-              </div>
-              <p style="margin-top: 1rem; color: var(--primary-color); font-weight: 500;">🏆 Merit Award for Future Mobility Autonomous Driving Software Competition</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-links">
-          <a href="mailto:bryan123@snu.ac.kr" class="contact-link">
-            <span>📧</span>
-            <span>Email</span>
-          </a>
-          <a href="https://github.com/bryanthegreat" target="_blank" class="contact-link">
-            <span>🐙</span>
-            <span>GitHub</span>
-          </a>
         </div>
       </section>
     </main>
-
-    <footer>
-      <p>© 2026 박준호 (Bryan Sun Park). Made with ❤️</p>
-    </footer>
   </div>
 </body>
 </html>
